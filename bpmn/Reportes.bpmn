@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_gQUAYDFREDyLhM49Z3zjGw" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_E313BAF9-917F-433C-97CD-8630992EB291_InMessageType"/>
+  <bpmn2:itemDefinition id="_E313BAF9-917F-433C-97CD-8630992EB291_OutMessageType"/>
+  <bpmn2:itemDefinition id="__E313BAF9-917F-433C-97CD-8630992EB291_messageInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__E313BAF9-917F-433C-97CD-8630992EB291_queryOutputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_InMessageType"/>
+  <bpmn2:itemDefinition id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_OutMessageType"/>
+  <bpmn2:itemDefinition id="__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputXItem" structureRef="String"/>
+  <bpmn2:message id="_E313BAF9-917F-433C-97CD-8630992EB291_InMessage" itemRef="_E313BAF9-917F-433C-97CD-8630992EB291_InMessageType"/>
+  <bpmn2:message id="_E313BAF9-917F-433C-97CD-8630992EB291_OutMessage" itemRef="_E313BAF9-917F-433C-97CD-8630992EB291_OutMessageType"/>
+  <bpmn2:interface id="_E313BAF9-917F-433C-97CD-8630992EB291_ServiceInterface" name="App\Agents\AnalistaBD" implementationRef="App\Agents\AnalistaBD">
+    <bpmn2:operation id="_E313BAF9-917F-433C-97CD-8630992EB291_ServiceOperation" name="" implementationRef="">
+      <bpmn2:inMessageRef>_E313BAF9-917F-433C-97CD-8630992EB291_InMessage</bpmn2:inMessageRef>
+      <bpmn2:outMessageRef>_E313BAF9-917F-433C-97CD-8630992EB291_OutMessage</bpmn2:outMessageRef>
+    </bpmn2:operation>
+  </bpmn2:interface>
+  <bpmn2:message id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_InMessage" itemRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_InMessageType"/>
+  <bpmn2:message id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_OutMessage" itemRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_OutMessageType"/>
+  <bpmn2:interface id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_ServiceInterface" name="App\Agents\WebDeveloper" implementationRef="App\Agents\WebDeveloper">
+    <bpmn2:operation id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_ServiceOperation" name="" implementationRef="">
+      <bpmn2:inMessageRef>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_InMessage</bpmn2:inMessageRef>
+      <bpmn2:outMessageRef>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_OutMessage</bpmn2:outMessageRef>
+    </bpmn2:operation>
+  </bpmn2:interface>
+  <bpmn2:collaboration id="_5A587219-1613-4F5C-900D-45C03BCBAC18" name="Default Collaboration">
+    <bpmn2:participant id="_258FDA6E-1396-4256-B277-8065947E5BEF" name="Pool Participant" processRef="Reportes"/>
+  </bpmn2:collaboration>
+  <bpmn2:process id="Reportes" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false" name="Reportes" isExecutable="true" processType="Public">
+    <bpmn2:sequenceFlow id="_859F28FE-C107-4063-89DA-2F52A138E813" sourceRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7" targetRef="_734F75E2-51D6-430B-882D-C87A213713FB"/>
+    <bpmn2:sequenceFlow id="_8CD87834-AA14-4EB0-99AF-382205A4184E" sourceRef="_E313BAF9-917F-433C-97CD-8630992EB291" targetRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7"/>
+    <bpmn2:sequenceFlow id="_4" sourceRef="_2" targetRef="_E313BAF9-917F-433C-97CD-8630992EB291"/>
+    <bpmn2:textAnnotation id="_B9B922AF-FC1D-4D59-AADE-0008EDD56260" name="Este proceso crea una pantalla de reporte">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Este proceso crea una pantalla de reporte]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:text>Este proceso crea una pantalla de reporte</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:endEvent id="_734F75E2-51D6-430B-882D-C87A213713FB">
+      <bpmn2:incoming>_859F28FE-C107-4063-89DA-2F52A138E813</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:serviceTask id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7" drools:serviceimplementation="WebService" drools:serviceinterface="App\Agents\WebDeveloper" drools:serviceoperation="" name="WebDeveloper crea la pantalla" implementation="WebService" operationRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_ServiceOperation">
+      <bpmn2:documentation><![CDATA[Escribe y prueba un componente vue usando componentes VUE-BOOTSTRAP para:
+{{{ message }}}
+
+El componente de reportes es global (no requiere import) y tiene la forma:
+```
+<b-report
+  :fields="fields"
+  :sql="sql"
+  :parameters="{ parametro1, parametro2 }"
+/>
+```
+el componente <b-report> tiene metodos: refresh.
+El query del componente de reporte es: {{ query }}
+
+La pantalla debe estar en español.
+Declarar todas las variables.
+Incluir validaciones.]]></bpmn2:documentation>
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[WebDeveloper crea la pantalla]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_8CD87834-AA14-4EB0-99AF-382205A4184E</bpmn2:incoming>
+      <bpmn2:outgoing>_859F28FE-C107-4063-89DA-2F52A138E813</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputX" drools:dtype="String" itemSubjectRef="__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputXItem" name="message"/>
+        <bpmn2:dataOutput id="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputX" drools:dtype="String" itemSubjectRef="__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputXItem" name="screen"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet>
+          <bpmn2:dataOutputRefs>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[$node->getDocumentation($data)]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_messageInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation>
+        <bpmn2:sourceRef>_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputX</bpmn2:sourceRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_screenOutputX]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[response]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="_E313BAF9-917F-433C-97CD-8630992EB291" drools:serviceimplementation="WebService" drools:serviceinterface="App\Agents\AnalistaBD" drools:serviceoperation="" name="AnalistaBD genera el query" implementation="WebService" operationRef="_E313BAF9-917F-433C-97CD-8630992EB291_ServiceOperation">
+      <bpmn2:documentation><![CDATA[escribe un query para:
+{{{ message }}}]]></bpmn2:documentation>
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[AnalistaBD genera el query]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_4</bpmn2:incoming>
+      <bpmn2:outgoing>_8CD87834-AA14-4EB0-99AF-382205A4184E</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="_E313BAF9-917F-433C-97CD-8630992EB291_messageInputX" drools:dtype="String" itemSubjectRef="__E313BAF9-917F-433C-97CD-8630992EB291_messageInputXItem" name="message"/>
+        <bpmn2:dataOutput id="_E313BAF9-917F-433C-97CD-8630992EB291_queryOutputX" drools:dtype="Object" itemSubjectRef="__E313BAF9-917F-433C-97CD-8630992EB291_queryOutputXItem" name="query"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>_E313BAF9-917F-433C-97CD-8630992EB291_messageInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet>
+          <bpmn2:dataOutputRefs>_E313BAF9-917F-433C-97CD-8630992EB291_queryOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>_E313BAF9-917F-433C-97CD-8630992EB291_messageInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[$node->getDocumentation($data)]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[_E313BAF9-917F-433C-97CD-8630992EB291_messageInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation>
+        <bpmn2:sourceRef>_E313BAF9-917F-433C-97CD-8630992EB291_queryOutputX</bpmn2:sourceRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[_E313BAF9-917F-433C-97CD-8630992EB291_queryOutputX]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[query]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:startEvent id="_2" name="Start Event">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Start Event]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>_4</bpmn2:outgoing>
+    </bpmn2:startEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="Reportes">
+      <bpmndi:BPMNShape id="shape__2" bpmnElement="_2">
+        <dc:Bounds height="56" width="56" x="532.484375" y="101"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__E313BAF9-917F-433C-97CD-8630992EB291" bpmnElement="_E313BAF9-917F-433C-97CD-8630992EB291">
+        <dc:Bounds height="102" width="154" x="483" y="234"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7" bpmnElement="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7">
+        <dc:Bounds height="102" width="154" x="483" y="397"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__734F75E2-51D6-430B-882D-C87A213713FB" bpmnElement="_734F75E2-51D6-430B-882D-C87A213713FB">
+        <dc:Bounds height="56" width="56" x="532" y="578"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__B9B922AF-FC1D-4D59-AADE-0008EDD56260" bpmnElement="_B9B922AF-FC1D-4D59-AADE-0008EDD56260">
+        <dc:Bounds height="60" width="220" x="707" y="99"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape__2_to_shape__E313BAF9-917F-433C-97CD-8630992EB291" bpmnElement="_4">
+        <di:waypoint x="560.484375" y="157"/>
+        <di:waypoint x="560" y="234"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__E313BAF9-917F-433C-97CD-8630992EB291_to_shape__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7" bpmnElement="_8CD87834-AA14-4EB0-99AF-382205A4184E">
+        <di:waypoint x="560" y="285"/>
+        <di:waypoint x="560" y="397"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7_to_shape__734F75E2-51D6-430B-882D-C87A213713FB" bpmnElement="_859F28FE-C107-4063-89DA-2F52A138E813">
+        <di:waypoint x="560" y="448"/>
+        <di:waypoint x="560" y="606"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters/>
+          <bpsim:ElementParameters elementRef="_2">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="_E313BAF9-917F-433C-97CD-8630992EB291">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="_8C0856B3-38A3-4ED4-B0A8-BD8AA9A355D7">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_gQUAYDFREDyLhM49Z3zjGw</bpmn2:source>
+    <bpmn2:target>_gQUAYDFREDyLhM49Z3zjGw</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

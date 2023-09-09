@@ -1,0 +1,60 @@
+version: '3'
+services:
+  app:
+    build: ./docker
+    container_name: app
+    depends_on:
+      - postgres
+    ports:
+      - '${APP_PORT:-8000}:80'
+    volumes:
+      - ./:/var/www
+    environment:
+      - 'DB_CONNECTION=${DB_CONNECTION:-pgsql}'
+      - 'DB_HOST=${DB_HOST:-postgres}'
+      - 'DB_PORT=${DB_PORT:-5432}'
+      - 'DB_DATABASE=${DB_DATABASE:-mydb}'
+      - 'DB_USERNAME=${DB_USERNAME:-myuser}'
+      - 'DB_PASSWORD=${DB_PASSWORD:-mypassword}'
+      - 'REDIS_HOST=${REDIS_HOST:-redis}'
+      - 'REDIS_PORT=${REDIS_PORT:-6379}'
+      - 'APACHE_RUN_USER=${APACHE_RUN_USER:-www-data}'
+      - 'APACHE_RUN_GROUP=${APACHE_RUN_GROUP:-www-data}'
+  postgres:
+    image: postgres:13-alpine
+    container_name: postgres
+    environment:
+      - 'POSTGRES_DB=${DB_DATABASE:-mydb}'
+      - 'POSTGRES_USER=${DB_USERNAME:-myuser}'
+      - 'POSTGRES_PASSWORD=${DB_PASSWORD:-mypassword}'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  openldap:
+    image: osixia/openldap:1.5.0
+    ports:
+      - 389:389
+    volumes:
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: 'openldap'
+      PHPLDAPADMIN_HTTPS: 'false'
+    ports:
+      - '${LDAP_PORT:-8006}:80'
+    depends_on:
+      - openldap
+  redis:
+    image: redis:6.2.5-alpine
+volumes:
+  postgres-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${PGDATA:-./docker/pgdata}
+  ldap_data:
+    driver: local
+  ldap_config:
+    driver: local
